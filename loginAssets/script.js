@@ -20,5 +20,5 @@ function redirectToPage() {
         return;
     }
 // Rediriger seulement si tous les champs sont remplis
-    window.location.href = "../homePageAssets/index.html"; // Remplace par l'URL de destination
+    window.location.href = "homePageAssets/index.html"; // Remplace par l'URL de destination
 }
