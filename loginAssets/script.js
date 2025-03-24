@@ -20,5 +20,5 @@ function redirectToPage() {
         return;
     }
 // Rediriger seulement si tous les champs sont remplis
-    window.location.href = "file:///C:/PROJET%20FIRST_TRUST/THEME_FIRST%20TRUST/Untitled-1.html"; // Remplace par l'URL de destination
+    window.location.href = "../homePageAssets/index.html"; // Remplace par l'URL de destination
 }
