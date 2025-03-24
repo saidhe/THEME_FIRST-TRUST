@@ -1,0 +1,112 @@
+/* ---- Arrière-plan ---- */
+body {
+    background: linear-gradient(120deg, #4facfe, #00f2fe);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+body 
+/* Style pour la barre de navigation */
+.custom-navbar {
+    background-color: #d9eaf7; /* Bleu clair */
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Marge en haut pour éviter le chevauchement */
+.container {
+    margin-top: 80px;
+}
+
+/* Style du logo */
+.logo {
+    width: 80px; 
+    height: auto;
+  }
+  
+
+/* ---- Conteneur principal ---- */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    margin: 50px auto;
+}
+/* ---- Titres ---- */
+h2, h3 {
+    color: #007bff;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ---- Champs d'entrée ---- */
+.input-group {
+    border-radius: 8px;
+}
+
+/* ---- Tableau ---- */
+.table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: #007bff;
+    color: white;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Barre de recherche */
+#search {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #007bff;
+}
+
+/* ---- Arrière-plan animé ---- */
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    background: linear-gradient(-35deg, #4facfe, #00f2fe, #ff758c, #ff7eb3);
+    background-size: 400% 400%;
+    animation: backgroundAnimation 10s ease infinite;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    max-width: 500px;
+    margin: auto;
+    border-radius: 12px;
+}
+
+.list-group-item {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+  
+
+
+
+
+

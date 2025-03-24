@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation de Numéros</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js" defer></script>
+
+    <style>
+        .logo {
+            width: 220px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="Capture_d_écran_2025-03-18_074808-removebg-preview.png" alt="Logo" class="logo">
+                <!-- Remplace "logo.png" par ton fichier -->
+            </a>
+            <div class="d-flex">
+                <a href="file:///C:/PROJET%20FIRST_TRUST/THEME_FIRST%20TRUST/Login_ftsl/Untitled-1.html" class="btn btn-primary">Se
+                    déconnecter</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Enregistrer un numéro de téléphone</h2>
+        <!-- Saisie du numéro -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" id="telephone" class="form-control" placeholder="Entrez votre numéro">
+                    <button class="btn btn-success" onclick="ajouterNumero()">Ajouter</button>
+                </div>
+                <p id="message" class="text-center mt-2"></p>
+            </div>
+        </div>
+
+        <!-- Barre de recherche -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <input type="text" id="search" class="form-control" placeholder="Rechercher un numéro..."
+                    onkeyup="rechercherNumero()">
+            </div>
+        </div>
+
+        <h3 class="text-center mt-4">Liste des numéros validés</h3>
+
+        <!-- Tableau des numéros validés -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped mt-3">
+                <thead class="table-primary">
+                    <tr>
+                        <th>#</th>
+                        <th>Numéro_telephone</th>
+                        <th>Date</th>
+                        <th>Heure</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Les numéros validés s'affichent ici -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Boutons d'exportation -->
+        <button class="btn btn-info mt-3" onclick="exporterExcel()">Exporter en Excel</button>
+        <button class="btn btn-danger mt-3" onclick="supprimerTousLesNumeros()">Supprimer tous les numéros</button>
+    </div>
+    <div class="container mt-5">
+        <h2 class="text-center">Importer un fichier Excel</h2>
+
+        <div class="card p-4 shadow-lg">
+            <input type="file" id="fileInput" class="form-control mb-3" accept=".xlsx, .xls">
+            <button class="btn btn-primary w-100" onclick="handleFile()">Importer</button>
+        </div>
+
+        <div class="mt-4">
+            <h4>Numéros validés :</h4>
+            <ul id="numList" class="list-group"></ul>
+        </div>
+    </div>
+</body>
+
+</html>
