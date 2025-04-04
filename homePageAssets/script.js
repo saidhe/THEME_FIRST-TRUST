@@ -288,3 +288,55 @@ document.getElementById("loginBtn").addEventListener("click", function() {
 document.getElementById("logoutBtn").addEventListener("click", function() {
     alert("Déconnexion effectuée !");
 });
+
+// Convertir un nombre Excel en date JavaScript
+function excelSerialToDate(serial) {
+    const excelEpoch = new Date(1899, 11, 30);
+    return new Date(excelEpoch.getTime() + serial * 86400000);
+}
+
+// Convertir un nombre Excel en heure JavaScript
+function excelSerialToTime(serial) {
+    const totalSeconds = Math.round(serial * 86400);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
+// Formatter la date en JJ/MM/AAAA
+function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}
+
+// Fonction pour corriger les dates et heures dans le tableau HTML
+function correctTable() {
+    const table = document.getElementById("excelTable"); // Sélectionner le tableau
+    const rows = table.getElementsByTagName("tr"); // Récupérer toutes les lignes du tableau
+
+    for (let i = 1; i < rows.length; i++) { // Commencer à 1 pour ignorer l'en-tête
+        const cells = rows[i].getElementsByTagName("td");
+        if (cells.length >= 4) { // Vérifier qu'il y a assez de colonnes
+            const dateCell = cells[2]; // Colonne "Date"
+            const timeCell = cells[3]; // Colonne "Heure"
+
+            const excelDate = parseFloat(dateCell.textContent.trim());
+            const excelTime = parseFloat(timeCell.textContent.trim());
+
+            if (!isNaN(excelDate)) {
+                const jsDate = excelSerialToDate(excelDate);
+                dateCell.textContent = formatDate(jsDate);
+            }
+
+            if (!isNaN(excelTime)) {
+                timeCell.textContent = excelSerialToTime(excelTime);
+            }
+        }
+    }
+}
+
+// Exécuter la correction après le chargement de la page
+window.onload = correctTable;
